@@ -207,9 +207,8 @@ let Alert = function( {
       info_dir.innerHTML = "Bootslert 1.0, powered by bootsnet inc.";
       info_dir.style.color = "grey";
       info_dir.classList.add("bootslert-dir");
-      if (info == false) {
-        bootslert_main.appendChild(info_dir);
-      }
+
+      bootslert_main.appendChild(info_dir);
     };
 
     let fn = {
@@ -218,7 +217,7 @@ let Alert = function( {
           bootslert_okay.addEventListener("click", function() {
             let ev = this.parentNode;
             ev.style.animation = "0.5s layer-fadeout linear";
-            bootslert_layer.style.animation = "0.5s bootslert-fadeout linear";
+            bootslert_layer.style.animation = "0.5s layer-fadeout linear";
 
             setTimeout(function() {
               bootslert_layer.remove();
@@ -244,6 +243,9 @@ let Alert = function( {
         }
       }
     };
+    (function() {
+      console.info("Bootsnet JS 1.0 > new Alert()");
+    }());
 
     if (document.body) configuration();
     else window.onload = configuration;
@@ -252,9 +254,6 @@ let Alert = function( {
   } else {
     throw new Error("Somethings is broken or not used. check now./nBootslert 1.0");
   }
-  (function() {
-    console.info("Bootsnet JS 1.0 > new Alert()");
-  }());
 };
 
 /* Information:

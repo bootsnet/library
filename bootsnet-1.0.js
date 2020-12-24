@@ -21,17 +21,17 @@
   From: MDN, Mozilla
 */
 
-let Ajax = function(urls,{
+let Ajax = function(urls, {
   type, send
 }) {
   let ajax = new XMLHttpRequest();
-  if(type == null){
-    ajax.open("GET",urls);
-  } else {
+  if (type != null) {
     ajax.open(type, urls);
+  } else {
+    ajax.open("GET", urls);
   }
-  if(type == "POST" || type == "post"){
-    ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  if (type == "POST" || type == "post") {
+    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   }
   ajax.send(send);
   return {
@@ -42,11 +42,7 @@ let Ajax = function(urls,{
         console.log("Bootsnet JS 1.0 > new Ajax().on()");
       }());
       ajax.onload = function(data) {
-        if (ajax.status >= 200 && ajax.status < 400) {
-          return load(JSON.parse(ajax.responseText), ajax);
-        } else {
-          return error(ajax.status, ajax.statusText);
-        }
+        return load(ajax);
       };
       ajax.onerror = function(data) {
         return error(ajax.status, ajax.statusText);

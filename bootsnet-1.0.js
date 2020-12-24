@@ -207,8 +207,7 @@ let Alert = function( {
       info_dir.innerHTML = "Bootslert 1.0, powered by bootsnet inc.";
       info_dir.style.color = "grey";
       info_dir.classList.add("bootslert-dir");
-
-      bootslert_main.appendChild(info_dir);
+      if(info != false) bootslert_main.appendChild(info_dir);
     };
 
     let fn = {

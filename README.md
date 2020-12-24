@@ -1,12 +1,12 @@
 # Introduction
-Bootslert is a alert library. Anyone can use our library.
-Bootslert provide you the best designs and best informatic
-alerts. So use now our booslert library.
+Bootsnet Lib is a JS And CSS related library. Anyone can use our library.
+Bootsnet Lib provide you the best designs and best informatic
+systems. So use now our boosnet library.
 
 # About
-Packs : Bootslert JS And CSS
+Packs : Bootsnet JS And CSS Lib
 
-Name : Bootslert Library (bootsnet alert library)
+Name : Bootsnet Library (JS, CSS)
 
 Latest Version : 1.0
 

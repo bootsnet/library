@@ -64,6 +64,9 @@ let Canvas = function(elem) {
       canvas.moveTo(left, top);
       canvas.lineTo(right, bottom);
       canvas.stroke();
+      (function() {
+        console.log("Bootsnet JS 1.0 > new Canvas().line()");
+      }());
     },
     rect: function( {
       left, top, right, bottom, type, color

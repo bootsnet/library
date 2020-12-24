@@ -25,7 +25,14 @@ let Ajax = function(urls,{
   type, send
 }) {
   let ajax = new XMLHttpRequest();
-  ajax.open(type, urls);
+  if(type == null){
+    ajax.open("GET",urls);
+  } else {
+    ajax.open(type, urls);
+  }
+  if(type == "POST" || type == "post"){
+    ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  }
   ajax.send(send);
   return {
     on: function( {

@@ -25,13 +25,13 @@ let Ajax = function(urls) {
   let ajax = new XMLHttpRequest();
   ajax.open("GET", urls);
   ajax.send(null);
-  (function() {
-    console.log("Bootsnet JS 1.0 > new Ajax()");
-  }());
   return {
     on: function( {
       load, error
     }) {
+      (function() {
+        console.log("Bootsnet JS 1.0 > new Ajax().on()");
+      }());
       ajax.onload = function(data) {
         if (ajax.status >= 200 && ajax.status < 400) {
           return load(JSON.parse(ajax.responseText), ajax);
@@ -72,6 +72,9 @@ let Canvas = function(elem) {
       eval("canvas."+type+"Style = '"+color+"';");
       eval("canvas."+type+"Rect(left,top,right, bottom)");
       eval("canvas."+type+"();");
+      (function() {
+        console.log("Bootsnet JS 1.0 > new Canvas().rect()");
+      }());
     },
     arc: function( {
       left, top, size, type, color
@@ -80,17 +83,20 @@ let Canvas = function(elem) {
       eval("canvas."+type+"Style = '"+color+"';");
       canvas.arc(left, top, size, 0, 20 * Math.PI);
       eval("canvas."+type+"();");
+      (function() {
+        console.log("Bootsnet JS 1.0 > new Canvas().arc()");
+      }());
     },
     text: function( {
       left, top, size, style, color, value
     }) {
       canvas.font = size+"px "+style;
       canvas.fillText(value, left, top);
+      (function() {
+        console.log("Bootsnet JS 1.0 > new Canvas().text()");
+      }());
     },
   };
-  (function() {
-    console.log("Bootsnet JS 1.0 > new Canvas()");
-  }());
   return fn;
 };
 
@@ -213,6 +219,9 @@ let Alert = function( {
     let fn = {
       okay: function(callback) {
         if (okay != null) {
+          (function() {
+            console.log("Bootsnet JS 1.0 > new Alert().okay()");
+          }());
           bootslert_okay.addEventListener("click", function() {
             let ev = this.parentNode;
             ev.style.animation = "0.5s layer-fadeout linear";
@@ -228,6 +237,9 @@ let Alert = function( {
       },
       cancel: function(callback) {
         if (cancel != null) {
+          (function() {
+            console.log("Bootsnet JS 1.0 > new Alert().cancel()");
+          }());
           bootslert_cancel.addEventListener("click", function() {
             let ev = this.parentNode;
             ev.style.animation = "0.5s bootslert-fadeout linear";
@@ -294,6 +306,10 @@ let Firebase = function(conf) {
         }
       };
 
+      (function() {
+        console.log("Bootsnet JS 1.0 > new Firebase().on()");
+      }());
+
       if (document.body) {
         configuration();
       } else {
@@ -301,8 +317,6 @@ let Firebase = function(conf) {
       }
     },
   };
-  (function() {
-    console.log("Bootsnet JS 1.0 > new Firebase()");
-  }());
+
   return fn;
 };

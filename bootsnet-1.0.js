@@ -26,7 +26,7 @@ let Ajax = function(urls) {
   ajax.open("GET", urls);
   ajax.send(null);
   (function() {
-    console.info("Bootsnet JS 1.0 > new Ajax()");
+    console.log("Bootsnet JS 1.0 > new Ajax()");
   }());
   return {
     on: function( {
@@ -89,7 +89,7 @@ let Canvas = function(elem) {
     },
   };
   (function() {
-    console.info("Bootsnet JS 1.0 > new Canvas()");
+    console.log("Bootsnet JS 1.0 > new Canvas()");
   }());
   return fn;
 };
@@ -207,7 +207,7 @@ let Alert = function( {
       info_dir.innerHTML = "Bootslert 1.0, powered by bootsnet inc.";
       info_dir.style.color = "grey";
       info_dir.classList.add("bootslert-dir");
-      if(info != false) bootslert_main.appendChild(info_dir);
+      if (info != false) bootslert_main.appendChild(info_dir);
     };
 
     let fn = {
@@ -244,7 +244,7 @@ let Alert = function( {
     };
     (function() {
       if (info != false) {
-        console.info("Bootsnet JS 1.0 > new Alert()");
+        console.log("Bootsnet JS 1.0 > new Alert()");
       }
     }());
 
@@ -302,7 +302,7 @@ let Firebase = function(conf) {
     },
   };
   (function() {
-    console.info("Bootsnet JS 1.0 > new Firebase()");
+    console.log("Bootsnet JS 1.0 > new Firebase()");
   }());
   return fn;
 };

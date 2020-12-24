@@ -244,7 +244,9 @@ let Alert = function( {
       }
     };
     (function() {
-      console.info("Bootsnet JS 1.0 > new Alert()");
+      if (info != false) {
+        console.info("Bootsnet JS 1.0 > new Alert()");
+      }
     }());
 
     if (document.body) configuration();

@@ -21,10 +21,12 @@
   From: MDN, Mozilla
 */
 
-let Ajax = function(urls) {
+let Ajax = function(urls,{
+  type, send
+}) {
   let ajax = new XMLHttpRequest();
-  ajax.open("GET", urls);
-  ajax.send(null);
+  ajax.open(type, urls);
+  ajax.send(send);
   return {
     on: function( {
       load, error

@@ -1,0 +1,134 @@
+/*
+  Bootsnet CSS : bootsnet inc.
+  Version : 1.0
+  Created on : 20 Dec 2020
+  Modified on : 22 Dec 2020
+  Updated on : 24 Dec 2020
+  Copyright ©️ 2020 by bootsnet inc.
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+.bootslert {
+  width: 90%;
+  height: auto;
+  background: #fff;
+  margin: 20px;
+  box-shadow: 0 0 3px deepgrey;
+  position: fixed;
+  top: calc(36% - 2em);
+  left: 0;
+  color: #333;
+  border-radius: 0.5rem;
+  user-select: none;
+  font-family: Ubuntu;
+  transition: all 0.5s ease;
+  animation: 0.5s bootslert-fadein linear;
+}
+.bootslert-layer {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.5s all ease;
+}
+.bootslert > h3 {
+  font-weight: 450;
+  margin-top: 3px;
+  width: 250px;
+  overflow: scroll;
+  margin: 20px;
+}
+.bootslert > p {
+  margin: 20px;
+  font-weight: 350;
+  margin-top: 3px;
+  max-height: 100px;
+  min-height: 50px;
+  overflow: scroll;
+}
+.bootslert > .bootslert-okay {
+  margin: 10px;
+  width: auto;
+  height: auto;
+  padding: 6px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 0.3rem;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: #09b322;
+  margin-top: 10px;
+}
+.bootslert > .bootslert-cancel {
+  margin: 10px;
+  width: auto;
+  height: auto;
+  padding: 6px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 0.3rem;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: #099fc4;
+  margin-top: 47px;
+}
+.bootslert > .bootslert-dir {
+  margin: 10px;
+  width: auto;
+  height: auto;
+  padding: 6px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 12px;
+  text-align: center;
+  font-weight: 300;
+  margin-top: 15px;
+}
+.bootslert-info-btn {
+  margin: 2px;
+  width: auto;
+  height: auto;
+  padding: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 0.3rem;
+  font-size: 14px;
+  color: #fff;
+  background: #14a0c3;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@keyframes bootslert-fadein {
+  from {
+    opacity: 0;
+    margin-top: 70px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 20px;
+  }
+}
+@keyframes bootslert-fadeout {
+  from {
+    opacity: 1;
+    margin-top: 20px;
+  }
+  to {
+    opacity: 0;
+    margin-top: 0px;
+  }
+}
+@keyframes layer-fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

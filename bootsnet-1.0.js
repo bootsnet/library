@@ -16,7 +16,7 @@
       ready: function( {
         load, error
       }, type) {
-        if (ajax_url) {
+        if (URL) {
           let ajax = new XMLHttpRequest();
           try {
             ajax = new XMLHttpRequest();

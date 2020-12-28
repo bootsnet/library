@@ -13,7 +13,7 @@
   let cors = "";
   let Ajax = function(URL) {
     let fn= {
-      ready: function( {
+      get: function( {
         load, error
       }, type) {
         if (URL) {
@@ -28,9 +28,9 @@
             }
           }
           ajax.open("GET", URL, false);
-          ajax.onreadystatechange = function(ajax) {
+          ajax.onreadystatechange = function() {
             if (load) {
-              if (ajax.readyState == 4) {
+              if (ajax.readyState == 4 && ajax.state == 200) {
                 // Do stuff to handle response
                 let data = ajax;
 

@@ -7,10 +7,7 @@
   Copyright ©️ 2020 by bootsnet inc.
 */
 
-(function (window) {
-  'use strict';
-
-  let cors = "";
+let cors = "";
   let Ajax = function(URL) {
     let fn= {
       get: function( {
@@ -111,6 +108,9 @@
 
     return fn;
   };
+
+(function (window) {
+  'use strict';
 
   let Bootsnet = function () {
     // body...

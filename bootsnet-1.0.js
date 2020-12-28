@@ -59,7 +59,7 @@
               }
             }
           };
-          ajax.onerror = function (ajax) {
+          ajax.onerror = function () {
             console.log("Error: failed to load Ajax: XMLHttpRequest.");
           };
           ajax.send(null);

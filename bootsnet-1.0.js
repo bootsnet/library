@@ -12,7 +12,7 @@
 
   let cors = "";
   let Ajax = function(URL) {
-    return {
+    let fn= {
       ready: function( {
         load, error
       }, type) {
@@ -66,6 +66,7 @@
         }
       },
     };
+    return fn;
   };
 
   let Firebase = function(conf) {
@@ -122,12 +123,6 @@
       return Bootsnet;
     });
   } else {
-    if (!window.Ajax) {
-      window.Ajax = Ajax;
-    }
-    if (!window.Firebase) {
-      window.Firebase = Firebase;
-    }
     if (!window.Bootsnet) {
       window.Bootsnet = Bootsnet;
     }

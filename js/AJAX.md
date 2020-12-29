@@ -1,7 +1,7 @@
 # Bootsnet Ajax JS
-It is a pure ajax javascript libary to handle ajax.
+Bootsnet Ajax JS is a pure ajax javascript libary to handle ajax and find out more.
 
-## Usage
+## Demo usage
 
 ```js
 let myAjax = new Ajax({
@@ -21,30 +21,19 @@ error: function(status, data) {
 
 ## Feature
 
-* Handle CORS with cookie (withCredentials) (IE 10+)
+* Handle CORS with cookie (withCredentials) (IE 10+).
+* Handle IE8 CORS (XDomainRequest).
+* Handle response XML format.
+* Not handle IE8 IE9 CORS with cookie (Native browser not support).
+* Supports set header.
+* If you want to check ajax in server side, you can use code like `xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');`
 
-* Handle IE8 CORS (XDomainRequest)
-
-* Handle response XML format
-
-* Not handle IE8 IE9 CORS with cookie (Native browser not support)
-
-* Support set header
-
-* If you want to check ajax in server side
-
-* you can use code like `xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');`
-
-* Supports
+## Supports
 
 * Chrome
-
 * Firefox
-
 * Safari
-
 * IE8+
-
 * Microsoft Edge
 
 ## Documentation
@@ -60,3 +49,13 @@ error: function(status, data) {
 |onload|event object|required|success, error|controls event|onload: { // events }
 |success|function|required|function(data) {console.log(data);}|handle response success|function(data) {console.log(data);}|
 |error|function|required|function(data) {console.log(data);}|handle response error|function(data) {console.log(data);}|
+
+## Credits
+
+* Bootsnet Ajax JS by : bootsnet inc.
+* Created on : 29 Dec 2020.
+* All version: (1.0 Latest).
+* Copyright &copy; 2020 by us.
+* licensed under Apache 2.0
+
+## Thanks

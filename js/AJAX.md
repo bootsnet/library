@@ -54,8 +54,7 @@ error: function(status, data) {
 
 * Bootsnet Ajax JS by : bootsnet inc.
 * Created on : 29 Dec 2020.
-* All version: (1.0 Latest).
-* Copyright &copy; 2020 by us.
-* licensed under Apache 2.0
+* All version: `1.0 Latest`.
+* licensed under `Apache 2.0`
 
 ## Thanks

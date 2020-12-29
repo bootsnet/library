@@ -5,17 +5,16 @@ It is a pure ajax javascript libary to handle ajax.
 
 ```js
 let myAjax = new Ajax({
-method: 'GET',
-url: 'https://en.wikipedia.org/api/rest_v1/page/summary/dhaka',
-data: null,
-section: 'object',
+  method: 'GET',
+  url: 'https://en.wikipedia.org/api/rest_v1/page/summary/dhaka',
+  data: null,
+  section: 'text',
 }).onload({
-success: function (data) {
-console.log(data.extract);
+  success: function (data) {
+  console.log(data);
 },
 error: function(status, data) {
-// status = http status
-// do something
+  console.error(status+"!! ",data);
 }
 });
 ```

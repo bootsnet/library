@@ -46,6 +46,9 @@
     }
     if (ajax_setting.url) {
       url = ajax_setting.url;
+      if (ajax_setting.cors == "anywhere") {
+        url = "https://cors-anywhere.herokuapp.com/"+ajax_setting.url;
+      }
     } else {
       return console.error('Failed to success XMLHttpRequest. Ajax urls are required.');
     }
@@ -116,23 +119,26 @@
 
             if (ajax_request.readyState === 4) {
               if (ajax_request.status === 200) {
-                let response;
-                switch (ajax_setting.response) {
-                  case 'json':
-                    response = JSON.parse(ajax_request.responseText);
+                let section;
+                switch (ajax_setting.section) {
+                  case 'object':
+                    section = JSON.parse(ajax_request.responseText);
                     break;
                   case 'xml':
-                    response = ajax_request.responseXML;
+                    section = ajax_request.responseXML;
                     break;
-                  case 'auto':
-                    response = ajax_request;
+                  case 'none':
+                    section = ajax_request;
+                    break;
+                  case 'text':
+                    section = JSON.stringify(ajax_request);
                     break;
                   default:
-                    response = JSON.parse(ajax_request.responseText);
+                    section = ajax_request;
                     break;
                 }
                 if (success) {
-                  success(response);
+                  success(section);
                 }
               } else {
                 if (error) {

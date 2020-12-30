@@ -1,5 +1,5 @@
 /*
-   Ajax JS : Bootsnet Lib.
+   Codnet JS : Bootsnet Lib.
    Powered by : bootsnet inc.
    Copyright by : bootsnet inc.
    Created by : mohammad sefatullah.

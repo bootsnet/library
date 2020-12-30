@@ -1,5 +1,5 @@
-# Bootsnet Ajax JS
-Bootsnet Ajax JS is a pure ajax javascript libary to handle ajax and find out more.
+# Codnet Ajax JS
+Codnet Ajax JS is a pure ajax javascript libary to handle ajax and find out more.
 
 ## Demo usage
 
@@ -52,7 +52,7 @@ error: function(status, data) {
 
 ## Credits
 
-* Bootsnet Ajax JS by : bootsnet inc.
+* Codnet Ajax JS by : bootsnet inc.
 * Created on : 29 Dec 2020.
 * All version: `1.0 Latest`.
 * licensed under `Apache 2.0`

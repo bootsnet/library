@@ -2,11 +2,11 @@
 Codnet JS is a pure javascript libary to create a website best by designs and formulas.
 
 ## Abouts :
-   Codnet JS : Bootsnet Lib.
-   Powered by : bootsnet inc.
-   Licensed under : Apache 2.0
-   Created by : mohammad sefatullah.
-   Last updated : 31, Dec 2020
+   * Codnet JS : Bootsnet Lib.
+   * Powered by : bootsnet inc.
+   * Licensed under : Apache 2.0
+   * Created by : mohammad sefatullah.
+   * Last updated : 31, Dec 2020
 
  ### All features :
   ```Version 1.0```

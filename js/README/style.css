@@ -1,0 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+body, td {
+  font-family: "Ubuntu";
+  color: #333;
+  font-size: 16px;
+}

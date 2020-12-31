@@ -1,9 +1,20 @@
 /*
    Codnet JS : Bootsnet Lib.
    Powered by : bootsnet inc.
-   Copyright by : bootsnet inc.
+   Licensed under : Apache 2.0
    Created by : mohammad sefatullah.
-   Last updated : 29, Dec 2020
+   Last updated : 31, Dec 2020
+
+ # In this version, [1.0] features :
+  * XMLHttpRequest
+  * Window customize
+  * Font and selection styles (Typography 1)
+
+ # In this version, [1.0] included :
+  * Ajax : Arguments- url, method, credential, requestHeader, section, success with onload, error with onload. Create a XMLHttpRequest request with any tools.
+  * Window : Get window type like- mobile, tablet, ipad, laptop, dekstop and set anythings with window.
+  * Fonts : Arguments- element, family, size, weight, style, width, height, space, breaks, color. Create a typography.
+  * Select : Arguments- element, bgcolor, color. Create a selection styles.
 */
 
 (function(window) {
@@ -37,12 +48,12 @@
     if (ajax_option) {
       ajax_setting = ajax_option;
     } else {
-      return console.error('Failed to success XMLHttpRequest. Ajax arguments are required.');
+      return console.error('Failed to load XMLHttpRequest. Ajax arguments are required.');
     }
     if (ajax_setting.method) {
       method = ajax_setting.method;
     } else {
-      return console.error('Failed to success XMLHttpRequest. Ajax methods are required.');
+      return console.error('Failed to load XMLHttpRequest. Ajax methods are required.');
     }
     if (ajax_setting.url) {
       url = ajax_setting.url;
@@ -50,7 +61,7 @@
         url = "https://cors-anywhere.herokuapp.com/"+ajax_setting.url;
       }
     } else {
-      return console.error('Failed to success XMLHttpRequest. Ajax urls are required.');
+      return console.error('Failed to load XMLHttpRequest. Ajax urls are required.');
     }
 
     data = ajax_setting.data || '';
@@ -68,12 +79,12 @@
       }
     }
     ajax_request.open(method, url);
-    if (ajax_setting.setRequestHeader) {
+    if (ajax_setting.requestHeader) {
       for (let key in ajax_setting.setRequestHeader) {
         ajax_request.setRequestHeader(key, ajax_setting.setRequestHeader[key]);
       }
     }
-    if (ajax_setting.withCredentials) {
+    if (ajax_setting.credential) {
       ajax_request.withCredentials = true;
     }
     if (ajax_setting.method !== 'GET') {
@@ -131,7 +142,7 @@
                     section = ajax_request;
                     break;
                   case 'text':
-                    section = JSON.stringify(ajax_request);
+                    section = ajax_request.responseText;
                     break;
                   default:
                     section = ajax_request;
@@ -157,14 +168,151 @@
     return fn;
   }
 
-  if (typeof module === 'object' && typeof module.exports === 'object') {
-    module.exports = Ajax;
-  } else if (typeof define === 'function' && define.amd) {
-    define([], function () {
-      return Ajax;
-    });
-  } else if (!window.Ajax) {
-    window.Ajax = Ajax;
+  function Windows( {
+    mobile, tablet, laptop, ipad, dekstop, otherwise
+  }) {
+    if (mobile || tablet || laptop || ipad || dekstop || otherwise) {
+      let onl = function() {
+        if (window.innerWidth <= 400) {
+          if (mobile) {
+            // mobile window
+            mobile(window);
+          }
+        } else if (window.innerWidth <= 870 && window.innerWidth >= 400) {
+          if (tablet) {
+            // tablet window
+            tablet(window);
+          }
+        } else if (window.innerWidth <= 970 && window.innerWidth >= 870) {
+          if (ipad) {
+            // ipad window
+            ipad(window);
+          }
+        } else if (window.innerWidth <= 1100 && window.innerWidth >= 970) {
+          if (laptop) {
+            // laptop window
+            laptop(window);
+          }
+        } else if (window.innerWidth <= 1200 && window.innerWidth >= 1100) {
+          if (dekstop) {
+            // dekstop window
+            dekstop(window);
+          }
+        } else {
+          if (otherwise) {
+            // other window
+            otherwise(window);
+          }
+        }
+      };
+      if (document.body) onl();
+      else window.onload = onl;
+    } else {
+      return console.error("Failed to execute window. Only 1 arguments are required, but only 0 arguments are present.");
+    }
   }
 
+  function Fonts( {
+    element = "body", family = "Ubuntu", size, weight, style, height, space, width, breaks, color
+  }) {
+    if (element) {
+      if (family) {
+        let fontLink = document.createElement("link");
+        fontLink.rel = "stylesheet";
+        fontLink.setAttribute("href", "https://fonts.googleapis.com/css?family="+family+"&display=swap");
+        let fontLinkAppend = function (argument) {
+          document.head.appendChild(fontLink);
+          element.style.fontFamily = family;
+        };
+        if (document.body) fontLinkAppend();
+        else window.onload = fontLinkAppend;
+      }
+      if (size) {
+        element.style.fontSize = size;
+      }
+      if (weight) {
+        element.style.fontWeight = weight;
+      }
+      if (style) {
+        element.style.fontStyle = style;
+      }
+      if (height) {
+        element.style.lineHeight = height;
+      }
+      if (space) {
+        element.style.letterSpacing = space;
+      }
+      if (width) {
+        element.style.wordSpacing = width;
+      }
+      if (color) {
+        element.style.color = color;
+      }
+      if (breaks) {
+        switch (breaks) {
+          case '1':
+            breaks = "auto";
+            break;
+          case '2':
+            breaks = "loose";
+            break;
+          case '3':
+            breaks = "normal";
+            break;
+          case '4':
+            breaks = "strict";
+            break;
+          default:
+            breaks = breaks;
+            break;
+        }
+        element.style.lineBreak = breaks;
+      }
+    } else {
+      return console.error("Failed to create fonts. Element arguments are required, but not present.");
+    }
+  }
+
+  function Select( {
+    element = "", bgcolor = "rgb(0,123,255,0.3)", color = "#fff"
+  }) {
+    if (bgcolor && color) {
+      let style = document.createElement("style");
+      let selection;
+      style.type = "text/css";
+      style.innerHTML = element+" ::selection {background: "+bgcolor+";color:"+color+";}";
+
+      let onl = function (argument) {
+        document.head.appendChild(style);
+      };
+      if (document.body) onl();
+      else window.onload = onl;
+    } else {
+      return console.error("Failed to create selection styles. Bgcolor and color arguments are required, but all are not present.");
+    }
+  }
+
+  if (typeof module === 'object' && typeof module.exports === 'object') {
+    module.exports = Ajax;
+    module.exports = Windows;
+    module.exports = Font;
+    module.exports = Select;
+  } else if (typeof define === 'function' && define.amd) {
+    define([], function () {
+      return Ajax, Windows, Fonts, Select;
+    });
+  } else {
+    if (!window.Ajax) {
+      window.Ajax = Ajax;
+    }
+    if (!window.Windows) {
+      window.Windows = Windows;
+    }
+    if (!window.Fonts) {
+      window.Fonts = Fonts;
+    }
+    if (!window.Select) {
+      window.Select = Select;
+    }
+  }
 } (typeof window !== 'undefined' ? window: this));
